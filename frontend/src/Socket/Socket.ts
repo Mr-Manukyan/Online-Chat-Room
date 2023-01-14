@@ -1,5 +1,5 @@
 import { io } from "socket.io-client";
- export const socket = io('https://onlineroom.herokuapp.com/')
+ export const socket = io('https://online-chat-api.onrender.com/')
       
 
 
