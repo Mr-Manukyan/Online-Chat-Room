@@ -20,6 +20,7 @@ const io = new Server(httpServer, {
 
 
 dotenv.config()
+mongoose.set('strictQuery', false)
 mongoose.connect(process.env.mongoURI, { useNewUrlParser: true ,
                                    useNewUrlParser : true,
                                    useUnifiedTopology: true,
