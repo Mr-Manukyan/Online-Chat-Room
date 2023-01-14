@@ -14,7 +14,7 @@ const app = express()
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin:"https://online-chat-room.onrender.com/",
+    origin:process.env.originURI,
   }
 });
 
