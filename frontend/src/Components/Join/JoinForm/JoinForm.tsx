@@ -2,7 +2,7 @@ import React, { useContext} from "react";
 import style from "./JoinForm.module.css";
 
 import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
+import { useForm,SubmitHandler } from "react-hook-form";
 import {motion} from 'framer-motion';
 
 import {LanguageContext, LanguageContextType} from "../../Common/LanguageProvider/LanguageProvider";
@@ -35,11 +35,16 @@ const animateErrorMassage = {
 
   };
 
+type JoinDataType = {
+  userName : string,
+  roomName : string
+}  
+
 export const JoinForm = () => {
 
 
   const { dictionary } = useContext<LanguageContextType>(LanguageContext);
-  const { register,handleSubmit,formState: { errors, isSubmitting } } = useForm({ mode: "all" });
+  const { register,handleSubmit,formState: { errors, isSubmitting } } = useForm<JoinDataType>({ mode: "all" });
   const isLoading = useSelector(getIsLoading)
   const dispatch = useDispatch()
   const meAvatar = useSelector(getMeAvatar)
@@ -59,7 +64,7 @@ export const JoinForm = () => {
 
 
 
-  const submit = ({roomName,userName}:any)=> {
+  const submit:SubmitHandler<JoinDataType> = ({roomName,userName})=> {
     dispatch(createRoom(roomName,userName,meAvatar)) 
   };
 
@@ -91,7 +96,7 @@ export const JoinForm = () => {
                       custom={0.3}
                       variants={animateErrorMassage}
           >
-            {errors.roomName.message}
+            {errors?.roomName?.message || "Error"}
           </motion.div>
         )}
       </div>
@@ -121,7 +126,7 @@ export const JoinForm = () => {
                       custom={0.3}
                       variants={animateErrorMassage}
           >
-            {errors.userName.message}
+            {errors?.userName?.message || "Error"}
           </motion.div>
         )}
       </div>
