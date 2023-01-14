@@ -121,7 +121,7 @@ export const JoinForm = () => {
                       custom={0.3}
                       variants={animateErrorMassage}
           >
-            {errors?.userName?.message || "Error"}
+            {errors?.userName?.message}
           </motion.div>
         )}
       </div>
