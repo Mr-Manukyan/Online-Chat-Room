@@ -14,9 +14,9 @@ const ShowUsersStatusInChat:React.FC<PropsType> = React.memo( ({userStatusInChat
 
      { status 
        ? <>
-          {meID !== user._id ? <div className = {style.userJoined}>{`${user.userName} : has joined the chat`}  </div> : null}
+          {meID !== user._id ? <div className = {style.userJoined}>{`${user.userName} : has joined the room`}  </div> : null}
          </>
-       : <div className = {style.userLeaveChat}>{`${user.userName} : has leaves the chat`}</div>
+       : <div className = {style.userLeaveChat}>{`${user.userName} : has left the room`}</div>
      }
     </React.Fragment>
   )

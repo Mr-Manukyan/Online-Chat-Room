@@ -58,7 +58,7 @@ export const Modal: React.FC<PropsType> = React.memo(({ setShowModal }) => {
         variants={animateQuestion}
       >
         <div className={style.titleWrapper}>
-          <p className={style.title}>You want to leave the chat?</p>
+          <p className={style.title}>Are You sure?</p>
         </div>
         <div className={style.buttonWrapper}>
           <button className={style.buttonNo} onClick={doNotLeaveTheChat}>
